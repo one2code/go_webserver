@@ -12,6 +12,11 @@ func main() {
 
 	m.HandleFunc("/", handlePage)
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+
 	const addr = ":8000"
 	srv := http.Server{
 		Handler:      m,
